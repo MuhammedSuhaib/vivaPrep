@@ -38,11 +38,9 @@ class accessModifiers:
     def get_private_method(self):
         return self.__private_method()
     def set_private_attribute(self,new_variable):
-        if type(new_variable)!= str: return(f'{red_start}NAN{red_end}') 
-        else :
+        if type(new_variable) == str: #only works when itis string 
             self.__private_variable = new_variable
             return new_variable
-
 
 
 ###############################################################################################
