@@ -17,6 +17,8 @@ class accessModifiers:
 ###############################################################################################
 #                                   SOME METHODS
 ############################################################################################### 
+    def __call__(self):
+            print("I'm callable!")
 
     def public_method(self):
         print("I am public method")
@@ -71,5 +73,38 @@ obj.public_method()
 obj._protected_method()
 obj._accessModifiers__private_method() # access private method using name mangling
 obj.get_private_method() # access private method using getter
-
 #obj.__private_method() # ❌❌AttributeError: 'accessModifiers' object has no attribute '__private_method'
+
+for_calls = accessModifiers()
+for_calls()
+print(callable(for_calls)) # True
+print(callable(123)) # False
+print(callable(accessModifiers)) # True
+
+
+
+
+
+
+
+class TryToDelete:
+    def __init__(self):
+        self.about_to_delete = 'to be deleted'
+#  can't use `@deleter` without defining a `@property`.
+# A property must have at least a dummy getter for the deleter to work.
+# like  @property  def deleting_def(self): pass 
+# then @deleting_def.deleter def deleting_def(self): print('Deleting...') del self.about_to_delete
+    @property
+    def deleting_def(self):
+        """ here i ve to tell wht hpn while deleting"""
+        print(self.about_to_delete)
+        print('while deleting the variable passed out from this program😔')
+
+    @deleting_def.deleter
+    def deleting_def(self):
+        del self.about_to_delete
+        print('about_to_delete: ', self.about_to_delete)
+
+wht_hpn_while_deleting = TryToDelete()
+wht_hpn_while_deleting.deleting_def  # triggers @property
+del wht_hpn_while_deleting.deleting_def  # triggers @deleter
