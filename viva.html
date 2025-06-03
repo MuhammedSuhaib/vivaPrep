@@ -7,76 +7,185 @@
     <title>GIAIC Viva Prep Tracker</title>
     <style>
         body {
-            font-family: sans-serif;
-            padding: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 24px;
             max-width: 900px;
             margin: auto;
+            background: #f7f7fa;
         }
 
-        .topic {
-            margin-bottom: 10px;
-        }
-
-        h1,
-        h2 {
+        h1, h2 {
             color: #222;
         }
 
-        select,
+        .notebook {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #0001;
+            margin-bottom: 32px;
+            padding: 20px 24px 10px 24px;
+        }
+
+        .topic {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        .topic:last-child {
+            border-bottom: none;
+        }
+
+        .topic.completed {
+            background: #e6ffe6;
+        }
+
+        .topic.in-progress {
+            background: #fffbe6;
+        }
+
+        .topic-label {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .ctrl {
+            min-width: 260px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select, input[type="number"] {
+            font-size: 1rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+        }
+
         input[type="number"] {
-            margin-left: 10px;
+            width: 60px;
         }
     </style>
 </head>
 
 <body>
     <h1>GIAIC Q3 & Q1 Viva Prep</h1>
-    <p>Mark status and confidence for each topic (0–100%).</p>
+    <p>Mark status and confidence for each topic (0–100%). Your progress is saved automatically.</p>
 
-    <script>
-        const selectHTML = `<select>
-      <option>Not Started</option>
-      <option>In Progress</option>
-      <option>Completed</option>
-    </select> Confidence: <input type="number" min="0" max="100">%`;
-    </script>
-
-    <div class="notebook">
+    <div class="notebook" data-notebook="12">
         <h2>Notebook 12</h2>
-        <div class="topic">1. Introduction to OOP <span class="ctrl"></span></div>
-        <div class="topic">2. What is OOP? - Definition, benefits (modularity, reusability, maintainability, scalability, real-world modeling) <span class="ctrl"></span></div>
-        <div class="topic">3. Key Principles - (Encapsulation - Abstraction - Inheritance - Polymorphism )<span class="ctrl"></span></div>
-        <div class="topic">4.  Basics of Classes & Objects - Class vs. instance, self, instantiation <span class="ctrl"></span></div>
-        <div class="topic">5.Constructors & Destructors - __new__, __init__ and __del__ <span class="ctrl"></span></div>
-        <div class="topic">6. Class Attributes vs. Instance Attributes <span class="ctrl"></span></div>
-        <div class="topic">7.Methods in Python Classes - Instance methods - Class methods (@classmethod) - Static methods (@staticmethod) <span class="ctrl"></span></div>
-        <div class="topic">8. Encapsulation - Access modifiers (public, protected, private) - Getters/setters <span class="ctrl"></span></div>
-        <div class="topic">9. Inheritance - Single & multiple inheritance - super() and method overriding <span class="ctrl"></span></div>
-        <div class="topic">10. Polymorphism - Method overriding - Operator overloading - Duck typing <span class="ctrl"></span></div>
-        <div class="topic">11. Abstraction - Abstract base classes & methods (abc module) <span class="ctrl"></span></div>
-        <div class="topic">12.  The object Class - Root of the hierarchy, default dunder methods <span class="ctrl"></span></div>
-        <div class="topic">13. Special (Magic/Dunder) Methods <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">1. Introduction to OOP</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">2. What is OOP? - Definition, benefits (modularity, reusability, maintainability, scalability, real-world modeling)</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">3. Key Principles - (Encapsulation - Abstraction - Inheritance - Polymorphism )</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">4.  Basics of Classes & Objects - Class vs. instance, self, instantiation</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">5.Constructors & Destructors - __new__, __init__ and __del__</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">6. Class Attributes vs. Instance Attributes</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">7.Methods in Python Classes - Instance methods - Class methods (@classmethod) - Static methods (@staticmethod)</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">8. Encapsulation - Access modifiers (public, protected, private) - Getters/setters</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">9. Inheritance - Single & multiple inheritance - super() and method overriding</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">10. Polymorphism - Method overriding - Operator overloading - Duck typing</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">11. Abstraction - Abstract base classes & methods (abc module)</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">12.  The object Class - Root of the hierarchy, default dunder methods</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">13. Special (Magic/Dunder) Methods</span> <span class="ctrl"></span></div>
     </div>
 
-    <div class="notebook">
+    <div class="notebook" data-notebook="13">
         <h2>Notebook 13</h2>
-        <div class="topic">1. Class & Static Variables <span class="ctrl"></span></div>
-        <div class="topic">2. Composition vs. Aggregation <span class="ctrl"></span></div>
-        <div class="topic">3. MRO <span class="ctrl"></span></div>
-        <div class="topic">4. Decorators in Classes - Class decorators - Property decorators (@property, @setter, @deleter) <span class="ctrl"></span></div>
-        <div class="topic">5. Callable Objects - __call__ and callable()  <span class="ctrl"></span></div>
-        <div class="topic">6. Modules & Packages in OOP - Project/package structure, imports  <span class="ctrl"></span></div>
-        <div class="topic">7. Advanced OOP Concepts - Metaclasses - Singleton pattern - Factory pattern <span class="ctrl"></span></div>
-        <div class="topic">8.Error Handling in OOP - Raising exceptions, custom exception classes<span class="ctrl"></span></div>
-        <div class="topic">9. Testing OOP Code - pytest <span class="ctrl"></span></div>
-        <div class="topic">10.Best Practices in OOP - SOLID principles<span class="ctrl"></span></div>
-        <div class="topic">11.Iterable Protocol & Iterators - collections.abc.Iterable, __iter__, __next__  <span class="ctrl"></span></div>
-        <div class="topic">12. Object-Based vs. Object-Oriented Languages <span class="ctrl"></span></div>
-        <div class="topic">13. Python’s Unified Type System - “Everything is an object <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">1. Class & Static Variables</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">2. Composition vs. Aggregation</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">3. MRO</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">4. Decorators in Classes - Class decorators - Property decorators (@property, @setter, @deleter)</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">5. Callable Objects - __call__ and callable()</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">6. Modules & Packages in OOP - Project/package structure, imports</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">7. Advanced OOP Concepts - Metaclasses - Singleton pattern - Factory pattern</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">8.Error Handling in OOP - Raising exceptions, custom exception classes</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">9. Testing OOP Code - pytest</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">10.Best Practices in OOP - SOLID principles</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">11.Iterable Protocol & Iterators - collections.abc.Iterable, __iter__, __next__</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">12. Object-Based vs. Object-Oriented Languages</span> <span class="ctrl"></span></div>
+        <div class="topic"><span class="topic-label">13. Python’s Unified Type System - “Everything is an object</span> <span class="ctrl"></span></div>
     </div>
 
     <script>
-        document.querySelectorAll('.ctrl').forEach(el => el.innerHTML = selectHTML);
+        // Options for status
+        const statusOptions = [
+            "Not Started",
+            "In Progress",
+            "Completed"
+        ];
+
+        // Load saved state from localStorage
+        function loadState() {
+            try {
+                return JSON.parse(localStorage.getItem("vivaPrepState") || "{}");
+            } catch {
+                return {};
+            }
+        }
+
+        // Save state to localStorage
+        function saveState(state) {
+            localStorage.setItem("vivaPrepState", JSON.stringify(state));
+        }
+
+        // Initialize controls for each topic
+        function setupTopics() {
+            const state = loadState();
+            document.querySelectorAll('.notebook').forEach((notebook, nbIdx) => {
+                notebook.querySelectorAll('.topic').forEach((topic, tIdx) => {
+                    const ctrl = topic.querySelector('.ctrl');
+                    ctrl.innerHTML = `
+                        <select>
+                            ${statusOptions.map(opt => `<option>${opt}</option>`).join("")}
+                        </select>
+                        Confidence: <input type="number" min="0" max="100" style="width:60px;">%
+                    `;
+
+                    // Restore state if exists
+                    const key = `${nbIdx}-${tIdx}`;
+                    const sel = ctrl.querySelector('select');
+                    const inp = ctrl.querySelector('input[type="number"]');
+                    if (state[key]) {
+                        sel.value = state[key].status;
+                        inp.value = state[key].confidence;
+                    }
+
+                    // Set initial color
+                    updateTopicClass(topic, sel.value);
+
+                    // Save on change
+                    sel.addEventListener('change', () => {
+                        updateTopicClass(topic, sel.value);
+                        state[key] = {
+                            status: sel.value,
+                            confidence: inp.value || ""
+                        };
+                        saveState(state);
+                    });
+                    inp.addEventListener('input', () => {
+                        state[key] = {
+                            status: sel.value,
+                            confidence: inp.value || ""
+                        };
+                        saveState(state);
+                    });
+                });
+            });
+        }
+
+        // Update topic background based on status
+        function updateTopicClass(topic, status) {
+            topic.classList.remove('completed', 'in-progress');
+            if (status === "Completed") topic.classList.add('completed');
+            else if (status === "In Progress") topic.classList.add('in-progress');
+        }
+
+        // Run setup on page load
+        setupTopics();
     </script>
 </body>
 
