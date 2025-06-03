@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GIAIC Viva Prep Tracker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .topic {
+            margin-bottom: 10px;
+        }
+
+        h1,
+        h2 {
+            color: #222;
+        }
+
+        select,
+        input[type="number"] {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GIAIC Q3 & Q1 Viva Prep</h1>
+    <p>Mark status and confidence for each topic (0–100%).</p>
+
+    <script>
+        const selectHTML = `<select>
+      <option>Not Started</option>
+      <option>In Progress</option>
+      <option>Completed</option>
+    </select> Confidence: <input type="number" min="0" max="100">%`;
+    </script>
+
+    <div class="notebook">
+        <h2>Notebook 12</h2>
+        <div class="topic">1. Introduction to OOP <span class="ctrl"></span></div>
+        <div class="topic">2. What is OOP? - Definition, benefits (modularity, reusability, maintainability, scalability, real-world modeling) <span class="ctrl"></span></div>
+        <div class="topic">3. Key Principles - (Encapsulation - Abstraction - Inheritance - Polymorphism )<span class="ctrl"></span></div>
+        <div class="topic">4.  Basics of Classes & Objects - Class vs. instance, self, instantiation <span class="ctrl"></span></div>
+        <div class="topic">5.Constructors & Destructors - __new__, __init__ and __del__ <span class="ctrl"></span></div>
+        <div class="topic">6. Class Attributes vs. Instance Attributes <span class="ctrl"></span></div>
+        <div class="topic">7.Methods in Python Classes - Instance methods - Class methods (@classmethod) - Static methods (@staticmethod) <span class="ctrl"></span></div>
+        <div class="topic">8. Encapsulation - Access modifiers (public, protected, private) - Getters/setters <span class="ctrl"></span></div>
+        <div class="topic">9. Inheritance - Single & multiple inheritance - super() and method overriding <span class="ctrl"></span></div>
+        <div class="topic">10. Polymorphism - Method overriding - Operator overloading - Duck typing <span class="ctrl"></span></div>
+        <div class="topic">11. Abstraction - Abstract base classes & methods (abc module) <span class="ctrl"></span></div>
+        <div class="topic">12.  The object Class - Root of the hierarchy, default dunder methods <span class="ctrl"></span></div>
+        <div class="topic">13. Special (Magic/Dunder) Methods <span class="ctrl"></span></div>
+    </div>
+
+    <div class="notebook">
+        <h2>Notebook 13</h2>
+        <div class="topic">1. Class & Static Variables <span class="ctrl"></span></div>
+        <div class="topic">2. Composition vs. Aggregation <span class="ctrl"></span></div>
+        <div class="topic">3. MRO <span class="ctrl"></span></div>
+        <div class="topic">4. Decorators - Class, Property <span class="ctrl"></span></div>
+        <div class="topic">5. Callable Objects <span class="ctrl"></span></div>
+        <div class="topic">6. Modules & Packages <span class="ctrl"></span></div>
+        <div class="topic">7. Advanced OOP - Meta, Singleton, Factory <span class="ctrl"></span></div>
+        <div class="topic">8. Error Handling - Custom Exceptions <span class="ctrl"></span></div>
+        <div class="topic">9. Testing OOP - pytest <span class="ctrl"></span></div>
+        <div class="topic">10. Best Practices - SOLID <span class="ctrl"></span></div>
+        <div class="topic">11. Iterators & Iterable Protocol <span class="ctrl"></span></div>
+        <div class="topic">12. Object-Based vs. OO Langs <span class="ctrl"></span></div>
+        <div class="topic">13. Unified Type System <span class="ctrl"></span></div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.ctrl').forEach(el => el.innerHTML = selectHTML);
+    </script>
+</body>
+
+</html>
