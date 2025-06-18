@@ -60,10 +60,54 @@ print(f"Is Alice an adult? {Person.is_adult(person1.age)}")  # Output: Is Alice 
 
 # ✅ An object is an instance of a class and has its own unique data.
 
-# --- Attributes vs Normal Variables ---
+            # --- Attributes vs Normal Variables ---
 # Attributes belong to objects/classes (accessed with obj.attr).
 # Normal variables are standalone, not tied to objects (e.g., x = 5).
 
-# --- Methods vs Functions ---
+            # --- Methods vs Functions ---
 # Methods are functions defined inside classes (called with obj.method()).
 # Functions are standalone and not bound to objects (called like func()).
+
+
+            # --- Python Method Types ----
+# Instance methods – default, use self, access instance.
+# Class methods – use @classmethod, take cls, access class.
+# Static methods – use @staticmethod, no self/cls, utility funcs.
+
+
+# ### Instance method:
+
+# ```py
+# def method(self):  # `self` is auto-passed
+#     self.x  # access with dot
+# ```
+
+# ### Class method:
+
+# ```py
+# @classmethod
+# def method(cls):
+#     cls.y  # access class attr
+# ```
+
+# ### Static method:
+
+# ```py
+# @staticmethod
+# def method():
+#     pass  # no self/cls
+# ```
+
+# Dot (`.`) is used *inside* method body, not in the param list.
+
+            # ---- Python Attribute Types ---
+# Instance attributes – defined in __init__, unique to object.
+# Class attributes – defined in class, shared by all instances.
+# Dynamic attributes – added at runtime to objects
+
+
+
+# "Root of the hierarchy" means `object` is the **top-most parent** class.
+# All other classes are **children** (directly or indirectly) of it.
+
+# Unified data type simply means everything is an object.
