@@ -5,6 +5,89 @@ italic_end = '\033[0m'
 red_start = '\033[91m'
 red_end = '\033[0m'
 
+
+###############################################################################################
+###############################################################################################
+                #                    OOP is all about OBJECTS
+                # - An object is an instance of a class with its own unique data.
+                # - "Unified data type" means everything in Python is an object.
+
+                # "Root of the hierarchy" → `object` is the top-most parent class.
+                #  All other classes are inherited from it (directly or indirectly).
+
+###############################################################################################
+###############################################################################################
+
+
+#                                   A SIMPLE DEMO OF OOP
+###############################################################################################
+
+class Hackers:
+    hackers_count = 0  # Example of a class attribute
+
+    def __init__(self, name: str, age: int, is_present: bool):  # Example of a constructor
+        self.__name = name        # Private attribute
+        self._age = age           # Protected attribute
+        self.is_present = is_present  # Public attribute
+
+    def greet(self) -> None: # Example of an instance method
+        print(f"Hi {self.__name}")
+
+    @classmethod
+    def count_updater(cls):  # Example of a class method
+        cls.hackers_count += 1
+        print(f"Total hackers: {cls.hackers_count}")
+
+    def run_all(self):  # Another Example of  instance method
+        self.greet()
+        self.count_updater()
+
+
+h1 = Hackers("A", 20, True).run_all()
+h2 = Hackers("B", 22, True).run_all()
+h3 = Hackers("C", 25, True).run_all()
+h4 = Hackers("D", 30, True).run_all()
+
+###############################################################################################
+
+
+
+
+
+
+            # --- Attributes vs Normal Variables ---
+# Attributes belong to objects/classes (accessed with obj.attr).
+# Normal variables are standalone, not tied to objects (e.g., x = 5).
+
+            # --- Methods vs Normal Functions ---
+# Methods are functions defined inside classes (called with obj.method()).
+# Functions are standalone and not bound to objects (called like func()).
+
+
+                    # --- 3 Python Method Types ----
+        # Instance methods – default, use self, access instance.
+        # Class methods – use @classmethod, take cls, access class.
+        # Static methods – use @staticmethod, no self/cls, utility functions.
+
+
+# 1: Instance method:
+def method(self):  # `self` is auto-passed
+    self.x  # access with dot
+
+# 2: Class method:
+@classmethod
+def method(cls):
+    cls.y  # access class attr
+
+# 3: Static method:
+@staticmethod
+def method():
+    pass  # no self/cls
+
+# Dot (.) is used inside method body, not in the param list.
+
+
+
 class accessModifiers:
     def __init__(self):
 ###############################################################################################
@@ -38,7 +121,7 @@ class accessModifiers:
     def get_private_method(self):
         return self.__private_method()
     def set_private_attribute(self,new_variable):
-        if type(new_variable) == str: #only works when itis string 
+        if type(new_variable) == str: #only works when it is string 
             self.__private_variable = new_variable
             return new_variable
 
@@ -105,4 +188,4 @@ class TryToDelete:
 
 wht_hpn_while_deleting = TryToDelete()
 wht_hpn_while_deleting.deleting_def  # triggers @property
-del wht_hpn_while_deleting.deleting_def  # triggers @deleter
+# del wht_hpn_while_deleting.deleting_def  # triggers @deleter ❌
