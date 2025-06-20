@@ -265,3 +265,22 @@ class TryToDelete:
 wht_hpn_while_deleting = TryToDelete()
 wht_hpn_while_deleting.deleting_def  # triggers @property
 # del wht_hpn_while_deleting.deleting_def  # triggers @deleter ❌
+
+
+
+
+###############################################################################################
+#                                __call__ and callable()
+###############################################################################################
+
+#__call__(self, ...):   Makes an object callable like a function.
+# callable(obj) :       Returns `True` if `obj` can be called (has `__call__`).
+#HERE  ➡   https://github.com/MuhammedSuhaib/21_oop_tasks.py/blob/main/task_19.py
+
+class A:
+    def __call__(self):
+        print("called")
+
+a = A()
+callable(a)        # True
+a()                # prints "called"
