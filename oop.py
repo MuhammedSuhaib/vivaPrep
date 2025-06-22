@@ -295,7 +295,7 @@ a()                # prints "called"
 #                                        Design Patterns
 ###############################################################################################
 
-            # --- Metaclass ---  
+            # --- Metaclass Design Patterns ---  
 # A blueprint for **creating classes** (just like classes create objects).
 # By default, Python uses `type` to create classes.
 # You can define your **own metaclass** or ou can say **your own class type** to customize class creation.
@@ -314,7 +314,7 @@ class MyClass(metaclass=Meta):
 
 
 
-            # --- Singleton Pattern ---
+            # --- Singleton Design Patterns ---
 # Ensures only **one instance** of a class exists, and provides global access to it.
 
 class Singleton:
@@ -341,7 +341,7 @@ print(id(singleton1) == id(singleton2))  # Output: True
 
 
 
-            # --- Factory Pattern ---
+            # --- Factory Design Patterns ---
 
 # A **parent class** creates objects, but **child classes** decide *what kind* of objects to create.
 # This allows flexible and loosely coupled code.
