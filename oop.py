@@ -20,6 +20,9 @@ red_end = '\033[0m'
 
 
 
+# If I want to tweak the behavior of a class, use `__new__`.
+# But normally, we just put data in `__init__`.
+
 
 ###############################################################################################
 #                                   A SIMPLE DEMO OF OOP CLASS
@@ -284,3 +287,94 @@ class A:
 a = A()
 callable(a)        # True
 a()                # prints "called"
+
+
+
+
+###############################################################################################
+#                                        Design Patterns
+###############################################################################################
+
+            # --- Metaclass ---  
+# A blueprint for **creating classes** (just like classes create objects).
+# By default, Python uses `type` to create classes.
+# You can define your **own metaclass** or ou can say **your own class type** to customize class creation.
+
+# MetaClasses control the behavior of class creation. You can use them to customize how classes are created and initialized.
+
+class Meta(type):
+    def __new__(cls, name, bases, dct):
+        print(f"Creating class: {name}")
+        return super().__new__(cls, name, bases, dct)
+
+        # Class using the custom metaclass
+class MyClass(metaclass=Meta):
+    pass
+
+
+
+
+            # --- Singleton Pattern ---
+# Ensures only **one instance** of a class exists, and provides global access to it.
+
+class Singleton:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            # super() here calls the parent class of Singleton, which is object by default.
+            # So, super().__new__(cls) means:
+            # "Use Python’s built-in way to create a new object of this class."
+            
+            # Even if you don’t see a parent explicitly, every class in Python inherits from object automatically
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+# Create instances of the Singleton class
+singleton1 = Singleton()
+singleton2 = Singleton()
+
+# Check if both instances are the same
+print(singleton1 is singleton2)  # Output: True
+print(id(singleton1) == id(singleton2))  # Output: True
+
+
+
+
+            # --- Factory Pattern ---
+
+# A **parent class** creates objects, but **child classes** decide *what kind* of objects to create.
+# This allows flexible and loosely coupled code.
+
+# Product interface
+class Animal:
+    def speak(self):
+        pass
+
+# Concrete products
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+# Factory class
+class AnimalFactory:
+    @staticmethod
+    def create_animal(animal_type):
+        if animal_type == "dog":
+            return Dog()
+        elif animal_type == "cat":
+            return Cat()
+        else:
+            raise ValueError("Invalid animal type")
+
+# Use the factory to create animals
+dog = AnimalFactory.create_animal("dog")
+cat = AnimalFactory.create_animal("cat")
+
+# Call the speak method
+print(dog.speak())  # Output: Woof!
+print(cat.speak())  # Output: Meow!
