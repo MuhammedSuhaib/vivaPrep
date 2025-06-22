@@ -297,10 +297,7 @@ a()                # prints "called"
 
             # --- Metaclass Design Patterns ---  
 # A blueprint for **creating classes** (just like classes create objects).
-# By default, Python uses `type` to create classes.
-# You can define your **own metaclass** or ou can say **your own class type** to customize class creation.
-
-# MetaClasses control the behavior of class creation. You can use them to customize how classes are created and initialized.
+# Means if class is the type of an object, then a metaclass is the type of a class.
 
 class Meta(type):
     def __new__(cls, name, bases, dct):
@@ -344,7 +341,6 @@ print(id(singleton1) == id(singleton2))  # Output: True
             # --- Factory Design Patterns ---
 
 # A **parent class** creates objects, but **child classes** decide *what kind* of objects to create.
-# This allows flexible and loosely coupled code.
 
 # Product interface
 class Animal:
